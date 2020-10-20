@@ -5,3 +5,86 @@ body {
     -webkit-font-smoothing: antialiased;
     color: $dark;
 }
+
+nav li:last-child a {
+    background: $primary;
+    &:hover {
+       background: $primary-hover;
+    }
+}
+
+nav li a {
+    transition: $smooth;
+    &:hover {
+        color: $primary;
+    }
+}
+
+section.hero {
+    background: $secondary;
+}
+
+.size {
+    background: $secondary;
+}
+
+.add-to-cart {
+    border: 2px solid $primary;
+    color: $primary;
+    transition: $smooth;
+    &:hover {
+        background: $primary;
+        border-color: $pure;
+        color: $pure;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+.btn-primary {
+    background: $primary;
+    transition: $smooth;
+    &:hover {
+        background: $primary-hover;
+    }
+}
+
+
+
+
+/* ####################################### Cart.ejs ################################## */ 
+.section.cart {
+    background: $secondary;
+}
+
+
+
+
+
+/* ####################################### Login.ejs ################################## */ 
+section.login {
+    background: $secondary;
+    min-height: calc(100vh - 120px);
+    a {
+        color: $primary;
+        &:hover {
+            color: $primary-hover;
+        }
+    }
+}
+
+
+
+
+/* ####################################### Register.ejs ################################## */ 
+section.register {
+    background: $secondary;
+    min-height: calc(100vh - 120px);
+    a {
+        color: $primary;
+        &:hover {
+            color: $primary-hover;
+        }
+    }
+}
