@@ -2,6 +2,7 @@ const express = require('express');
 const ejs = require('ejs');
 const expressLayouts = require('express-ejs-layouts');
 const path = require('path');
+const mongoose = require('mongoose');
 
 const app = express();
 
@@ -20,26 +21,20 @@ app.set('view engine', 'ejs');
 
 
 // Routes
-
-app.get('/', (req, res) => {
-    res.render('homepage');
-});
-
-app.get('/cart', (req, res) => {
-    res.render('customers/cart');
-});
+require('./routes/web')(app);
 
 
-app.get('/register', (req, res) => {
-    res.render('auth/register');
-});
+const MONGODB_URI = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
-
-app.get('/login', (req, res) => {
-    res.render('auth/login');
-});
-
-
+try {
+    mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+    const connection = mongoose.connection;
+    connection.once('open', () => {
+        console.log('connection with DB successfully established');
+    });
+} catch (err) {
+    console.log('Error occured while connecting to DB ', err);
+};
 
 
 const PORT = process.env.PORT || 5000;
