@@ -7,6 +7,7 @@ const session = require('express-session');
 const dotenv = require('dotenv');
 const flash = require('express-flash');
 const MongoDbStore = require('connect-mongo')(session);
+const passport = require('passport');
 
 dotenv.config();
 
@@ -21,6 +22,7 @@ connection.once('open', () => {
 }).catch(err => {
     console.log('Error occured while connecting to DB ', err);
 });
+
 
 
 // Session store 
@@ -38,6 +40,12 @@ app.use(session({
     cookie: { maxAge: 1000 * 60 * 60 * 24 } // for a day ie; 24 hours in milliseconds
 }))
 
+const passportInit = require('./app/config/passport');
+passportInit(passport);
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 
 app.use(flash());
 
@@ -54,6 +62,7 @@ app.use(express.json())
 
 app.use((req, res, next) => {
     res.locals.session = req.session;
+    res.locals.user = req.user;
     next();
 })
 
