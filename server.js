@@ -8,6 +8,7 @@ const dotenv = require('dotenv');
 const flash = require('express-flash');
 const MongoDbStore = require('connect-mongo')(session);
 const passport = require('passport');
+const Emitter = require('events');
 
 dotenv.config();
 
@@ -80,6 +81,34 @@ require('./routes/web')(app);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server running on PORT ${PORT}`);
+})
+
+
+// Event emitter
+
+const eventEmitter = new Emitter();
+app.set('eventEmitter', eventEmitter);
+
+
+
+// socket
+
+const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+    console.log(socket.id);
+    socket.on('join', (orderId) => {
+        console.log(orderId);
+        socket.join(orderId);
+    })
+})
+
+eventEmitter.on('orderUpdated', (data) => {
+    io.to(`order_${data.id}`).emit('orderUpdated', data);
+})
+
+eventEmitter.on('orderPlaced', (data) => {
+    io.to('adminRoom').emit('orderPlaced', data);
 })
