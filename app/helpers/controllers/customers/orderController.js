@@ -22,6 +22,10 @@ function orderController() {
                 .then(result => {
                     req.flash('success', 'Order placed successfully');
                     delete req.session.cart; // deleting the cart items
+
+                    // emit event
+                    const eventEmitter = req.app.get('eventEmitter');
+                    eventEmitter.emit('orderPlaced', result);
                     return res.redirect('/customer/orders');
                 })
                 .catch(err => {
@@ -40,6 +44,18 @@ function orderController() {
             res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 
             res.render('customers/orders', { orders: orders, dayjs: dayjs });
+        },
+
+
+        async show(req, res) {
+            const order = await Order.findById(req.params.id);
+
+            // Authorize user to only see his order status
+            if (req.user._id.toString() === order.customerId) {
+                return res.render('customers/singleOrder', { order: order });
+            } else {
+                return res.redirect('/');
+            }
         }
     }
 }
