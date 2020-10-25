@@ -2,6 +2,8 @@
 @import '~noty/src/noty.scss';
 @import '~noty/src/themes/mint.scss';
 
+
+/* ####################################### Layout.ejs ################################## */ 
 body {
     font-family: 'Lato', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -53,6 +55,10 @@ section.hero {
 }
 
 
+
+footer {
+    background: $dark
+}
 
 
 /* ####################################### Cart.ejs ################################## */ 

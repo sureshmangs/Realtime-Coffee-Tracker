@@ -305,6 +305,8 @@
   color: #fff;
 }
 
+/* ####################################### Layout.ejs ################################## */
+
 body {
   font-family: "Lato", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -312,11 +314,11 @@ body {
 }
 
 nav li:last-child a {
-  background: #FE5F1E;
+  background: #efab84;
 }
 
 nav li:last-child a:hover {
-  background: #b23301;
+  background: #4f2f15;
 }
 
 nav li a {
@@ -324,7 +326,7 @@ nav li a {
 }
 
 nav li a:hover {
-  color: #FE5F1E;
+  color: #efab84;
 }
 
 section.hero {
@@ -336,13 +338,13 @@ section.hero {
 }
 
 .add-to-cart {
-  border: 2px solid #FE5F1E;
-  color: #FE5F1E;
+  border: 2px solid #efab84;
+  color: #efab84;
   transition: all 0.3 ease-in-out;
 }
 
 .add-to-cart:hover {
-  background: #FE5F1E;
+  background: #efab84;
   border-color: #fff;
   color: #fff;
 }
@@ -352,12 +354,16 @@ section.hero {
 }
 
 .btn-primary {
-  background: #FE5F1E;
+  background: #efab84;
   transition: all 0.3 ease-in-out;
 }
 
 .btn-primary:hover {
-  background: #b23301;
+  background: #4f2f15;
+}
+
+footer {
+  background: #232323;
 }
 
 /* ####################################### Cart.ejs ################################## */
@@ -374,11 +380,11 @@ section.login {
 }
 
 section.login a {
-  color: #FE5F1E;
+  color: #efab84;
 }
 
 section.login a:hover {
-  color: #b23301;
+  color: #4f2f15;
 }
 
 /* ####################################### Register.ejs ################################## */
@@ -389,11 +395,11 @@ section.register {
 }
 
 section.register a {
-  color: #FE5F1E;
+  color: #efab84;
 }
 
 section.register a:hover {
-  color: #b23301;
+  color: #4f2f15;
 }
 
 /* ####################################### Noty ################################## */
@@ -406,7 +412,7 @@ section.register a:hover {
 /* ####################################### Orders.ejs ################################## */
 
 a.link {
-  color: #FE5F1E;
+  color: #efab84;
 }
 
 /* ####################################### singleOrder.ejs ################################## */
@@ -505,11 +511,11 @@ section.status {
 }
 
 .status-box ul li.current span {
-  color: #FE5F1E;
+  color: #efab84;
 }
 
 .status-box ul li.current span:after {
-  background: #FE5F1E;
+  background: #efab84;
 }
 
 .status-box ul li small {
