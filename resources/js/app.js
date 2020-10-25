@@ -90,7 +90,7 @@ updateStatus(JSON.parse(order));
 
 let socket = io();
 
-initAdmin(socket);   // calling admin orders code
+
 
 if (order) {
     socket.emit('join', `order_${JSON.parse(order)._id}`)
@@ -114,5 +114,6 @@ socket.on('orderUpdated', (data) => {
 let adminAreaPath = window.location.pathname;
 
 if (adminAreaPath.includes('admin')) {
+    initAdmin(socket);   // calling admin orders code
     socket.emit('join', 'adminRoom');
 }

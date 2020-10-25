@@ -5422,7 +5422,6 @@ function updateStatus(order) {
 updateStatus(JSON.parse(order)); // socket client
 
 var socket = io();
-Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(socket); // calling admin orders code
 
 if (order) {
   socket.emit('join', "order_".concat(JSON.parse(order)._id));
@@ -5444,6 +5443,8 @@ socket.on('orderUpdated', function (data) {
 var adminAreaPath = window.location.pathname;
 
 if (adminAreaPath.includes('admin')) {
+  Object(_admin__WEBPACK_IMPORTED_MODULE_2__["initAdmin"])(socket); // calling admin orders code
+
   socket.emit('join', 'adminRoom');
 }
 
