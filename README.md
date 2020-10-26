@@ -6,6 +6,18 @@ Building an application to order coffee and view its realtime order update using
 
 Demo Link: [Coffee Cafe](https://cafecoffee.herokuapp.com/)
 
+```
+Register as a new user or
+User Login:
+email: johndoe@example.com
+password: user_password
+
+Admin Login:
+email: admin@coffeecafe.com
+password: admin_password
+```
+
+
 
 
 
@@ -68,10 +80,11 @@ git push heroku master
 
 ### :arrow_right: Demo
 
-Homepage
+##### Homepage
 
-![alt text](./Demo/homepage.gif "Homepage")
+![homepage](./Demo/homepage.gif "Homepage")
 
-Full Demo (window1: user   window2: admin)
+##### Full Demo 
+(`window1: user`   `window2: admin`)
 
-![alt text](./Demo/fulldemo.gif "full_demo")
+![full_demo](./Demo/fulldemo.gif "full_demo")
